@@ -9,6 +9,3 @@ nameInput.addEventListener("input", function () {
     nameOutput.textContent = name;
 }
 );
-
-//boş kutu olduğunda anoymous olması eklenecek
-//kenarlardaki boşluklardan trim metodu ile temizle
