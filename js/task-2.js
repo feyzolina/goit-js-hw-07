@@ -12,9 +12,9 @@ const images = [
         alt: "Group of Horses Running",
     },
 ];
-const gallery = document.querySelector(".gallery");  
+const gallery = document.querySelector(".gallery");
 
-images.forEach(function (image) {   
+images.forEach(function (image) {
     const li = document.createElement("li");
     const img = document.createElement("img");
     img.src = image.url;
