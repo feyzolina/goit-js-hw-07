@@ -13,15 +13,12 @@ const images = [
     },
 ];
 const gallery = document.querySelector(".gallery");
+let galleryHTML = '';
 
-images.forEach(function (image) {
-    const li = document.createElement("li");
-    const img = document.createElement("img");
-    img.src = image.url;
-    img.alt = image.alt;
-
-    li.appendChild(img);
-    gallery.appendChild(li);
+images.forEach(image => {
+    galleryHTML += `<li><img src="${image.url}" alt="${image.alt}" /></li>`;
 });
+
+gallery.innerHTML = galleryHTML;
 
 
