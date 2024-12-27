@@ -3,7 +3,14 @@ const createBtn = document.querySelector('[data-create]');
 const destroyBtn = document.querySelector('[data-destroy]');
 const boxesContainer = document.querySelector('#boxes');
 
-
+function destroyBoxes() {
+    boxesContainer.innerHTML = '';
+}
+function getRandomHexColor() {
+    return `#${Math.floor(Math.random() * 16777215)
+        .toString(16)
+        .padStart(6, 0)}`;
+} 
 function createBoxes(amount) {
     destroyBoxes();
 
@@ -19,15 +26,6 @@ function createBoxes(amount) {
     }
    
     boxesContainer.append(...boxes);
-}
-
-function destroyBoxes() {
-    boxesContainer.innerHTML = ''; 
-}
-function getRandomHexColor() {
-    return `#${Math.floor(Math.random() * 16777215)
-        .toString(16)
-        .padStart(6, 0)}`;
 }
 
 createBtn.addEventListener('click', () => {
