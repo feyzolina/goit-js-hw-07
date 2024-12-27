@@ -3,6 +3,33 @@ const createBtn = document.querySelector('[data-create]');
 const destroyBtn = document.querySelector('[data-destroy]');
 const boxesContainer = document.querySelector('#boxes');
 
+
+function createBoxes(amount) {
+    destroyBoxes();
+
+    const boxes = [];
+    for (let i = 0; i < amount; i++) {
+        const box = document.createElement('div');
+        const size = 30 + i * 10; 
+        box.style.width = `${size}px`;
+        box.style.height = `${size}px`;
+        box.style.backgroundColor = getRandomHexColor(); 
+        box.style.margin = '5px';
+        boxes.push(box);
+    }
+   
+    boxesContainer.append(...boxes);
+}
+
+function destroyBoxes() {
+    boxesContainer.innerHTML = ''; 
+}
+function getRandomHexColor() {
+    return `#${Math.floor(Math.random() * 16777215)
+        .toString(16)
+        .padStart(6, 0)}`;
+}
+
 createBtn.addEventListener('click', () => {
     const amount = Number(input.value);
 
@@ -14,36 +41,7 @@ createBtn.addEventListener('click', () => {
     input.value = '';
 });
 
-// Destroy butonuna tıklanıldığında tüm öğeleri sil
 destroyBtn.addEventListener('click', destroyBoxes);
 
-// Yeni kutu koleksiyonunu oluşturma fonksiyonu
-function createBoxes(amount) {
-    // Önceki kutuları temizle
-    destroyBoxes();
 
-    // Yeni kutuları ekle
-    const boxes = [];
-    for (let i = 0; i < amount; i++) {
-        const box = document.createElement('div');
-        const size = 30 + i * 10; // 30px başlangıç, her kutu 10px daha geniş
-        box.style.width = `${size}px`;
-        box.style.height = `${size}px`;
-        box.style.backgroundColor = getRandomHexColor(); // Rastgele renk
-        box.style.margin = '5px';
-        boxes.push(box);
-    }
-    // Tüm kutuları DOM'a ekle
-    boxesContainer.append(...boxes);
-}
-
-// Kutu koleksiyonunu temizleme fonksiyonu
-function destroyBoxes() {
-    boxesContainer.innerHTML = ''; // İçeriği temizle
-}
-function getRandomHexColor() {
-    return `#${Math.floor(Math.random() * 16777215)
-        .toString(16)
-        .padStart(6, 0)}`;
-}
 
